@@ -25,3 +25,19 @@
 La aplicación ofrecerá un entorno donde los campesinos podrán registrar su información y los productos que desean vender. Cada producto estará asociado con detalles como nombre, descripción, precio y disponibilidad. Los consumidores, por otro lado, podrán explorar la aplicación, buscar productos de su interés y realizar pedidos directamente a los campesinos.
 
 Cuando un consumidor realiza un pedido, se registra en la base de datos y se crea un registro de detalles del pedido, que incluye información como el producto solicitado, la cantidad, el precio unitario y el subtotal. Los campesinos recibirán notificaciones de los pedidos realizados y podrán gestionarlos, actualizando el estado del pedido (por ejemplo, en proceso, completado, cancelado) a medida que avanzan en su procesamiento y entrega.
+
+# Objetivo General
+
+- El objetivo general de este proyecto es desarrollar una aplicación que promueva la venta directa de productos agrícolas entre campesinos y consumidores, eliminando intermediarios y fomentando una relación más directa y transparente. Al lograrlo, esperas alcanzar los siguientes objetivos específicos:
+
+Facilitar la conexión: Proporcionar una plataforma intuitiva y fácil de usar que permita a los campesinos mostrar y vender sus productos directamente a los consumidores interesados.
+Promover la venta local: Fomentar el consumo de productos agrícolas locales al facilitar que los consumidores encuentren y compren directamente a los campesinos de su área, apoyando así la economía local y reduciendo la dependencia de cadenas de suministro más largas.
+Mejorar la rentabilidad de los campesinos: Permitir que los campesinos obtengan un mayor beneficio económico al vender directamente sus productos, evitando intermediarios y sus correspondientes comisiones.
+Ofrecer alimentos frescos y de calidad: Permitir a los consumidores acceder a productos agrícolas frescos, de temporada y de alta calidad, al reducir el tiempo y la distancia entre la cosecha y el consumo.
+Promover la transparencia: Proporcionar información detallada sobre los productos, incluyendo su origen, métodos de producción y certificaciones, para que los consumidores puedan tomar decisiones informadas sobre sus compras.
+Mejorar la trazabilidad: Establecer un sistema de seguimiento que permita a los consumidores conocer el origen y el recorrido de los productos, brindando transparencia y seguridad alimentaria.
+Impulsar la sostenibilidad: Promover prácticas agrícolas sostenibles al conectar a los consumidores con campesinos comprometidos con la agricultura ecológica, regenerativa y respetuosa con el medio ambiente.
+
+
+### Diagrama de la base de datos
+![Alt text](image.png)
