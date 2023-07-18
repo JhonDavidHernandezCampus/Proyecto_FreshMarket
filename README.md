@@ -40,4 +40,4 @@ Impulsar la sostenibilidad: Promover prácticas agrícolas sostenibles al conect
 
 
 ### Diagrama de la base de datos
-![Alt text](/img/Captura desde 2023-07-18 16-57-39.png)
+![Alt text](./img/Captura desde 2023-07-18 16-57-39.png)
