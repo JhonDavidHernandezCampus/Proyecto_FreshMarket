@@ -108,3 +108,10 @@ SELECT * FROM usuario;
 SELECT * FROM campesino;
 SHOW COLUMNS FROM campesino;
 SELECT * FROM comprador;
+
+DELETE FROM usuario WHERE id_usuario = 312;
+
+SELECT * 
+FROM usuario u INNER JOIN comprador c
+ON u.id_usuario = c.fk_id_usuario
+WHERE id_usuario = 6;

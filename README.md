@@ -41,3 +41,16 @@ Impulsar la sostenibilidad: Promover prácticas agrícolas sostenibles al conect
 
 ### Diagrama de la base de datos
 ![Alt text](./img/diagrama.png)
+
+# Manuel para usar el API 
+
+### Endpoinds para la tabla usuarios
+###### Endpoind #1
+- Method = GET
+http://127.121.12.6:9103/usuario/mostrar/id_usuario
+
+Ejemplo: http://127.121.12.6:9103/usuario/mostrar/2
+- Este endpoind me muestra los datos de un usuario segun su id pasado por la URL
+
+
+
