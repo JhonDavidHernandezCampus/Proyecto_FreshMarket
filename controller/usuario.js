@@ -157,7 +157,7 @@ router.delete('/eliminar', proxyUsuario, (req, res) => {
         }
     });
 })
-/* 
+/*  
 {
     "id_usuario":322, 
     "nombre_usuario":"CarAlmeida121",
