@@ -42,15 +42,101 @@ Impulsar la sostenibilidad: Promover prácticas agrícolas sostenibles al conect
 ### Diagrama de la base de datos
 ![Alt text](./img/diagrama.png)
 
-# Manuel para usar el API 
+# Manual para usar el API 
 
 ### Endpoinds para la tabla usuarios
 ###### Endpoind #1
 - Method = GET
-http://127.121.12.6:9103/usuario/mostrar/id_usuario
+http://127.121.12.6:9103/usuario/mostrar/:id_usuario
 
 Ejemplo: http://127.121.12.6:9103/usuario/mostrar/2
 - Este endpoind me muestra los datos de un usuario segun su id pasado por la URL
+
+###### Endpoind #2
+- Method = POST
+http://127.121.12.6:9103/usuario/insertar/campesino
+
+Ejemplo De data a enviar:
+```json 
+{
+    "id_usuario":422, 
+    "nombre_usuario":"CarAlmeida121",
+    "email":"jhon@gamil.com",
+    "fk_id_genero":1,
+    "camp_nombre":"Jhon calos Almeida",
+    "camp_direccion":"Floridablanca la casa blanca",
+    "camp_telefono":"3224757536"
+}
+```
+- Este endpoind me agrega un usuario campesino 
+
+
+###### Endpoind #3
+- Method = POST
+http://127.121.12.6:9103/usuario/insertar/comprador
+
+Ejemplo De data a enviar:
+```json 
+{
+    "id_usuario":322,
+    "nombre_usuario":"CarAlmeida121",
+    "email":"jhon@gamil.com",
+    "fk_id_genero":1,
+    "nombre_comprador":"Jhon calos Almeida",
+    "compra_direccion":"Floridablanca la casa blanca",
+    "compra_telefono":"3224757536"
+}
+```
+- Este endpoind me agrega un usuario comprador
+
+###### Endpoind #4
+- Method = DELETE
+http://127.121.12.6:9103/usuario/eliminar
+
+Ejemplo De data a enviar:
+```json 
+{
+    "id_eliminar":123
+}
+```
+- Este endpoind me elimina un usuario comprador ya sea comprador o campesino
+
+###### Endpoind #5
+- Method = PUT
+http://127.121.12.6:9103/usuario/actualizar/campesino
+
+Ejemplo De data a enviar:
+```json 
+{
+    "id_usuario":322, 
+    "nombre_usuario":"CarAlmeida121",
+    "email":"jhon@gamil.com",
+    "fk_id_genero":1,
+    "nombre_comprador":"Jhon calos Almeida",
+    "compra_direccion":"Floridablanca la casa blanca",
+    "compra_telefono":"3224757536"
+}
+```
+- Este endpoind me actualiza un usuario campesino 
+
+###### Endpoind #6
+- Method = PUT
+http://127.121.12.6:9103/usuario/actualizar/comprador
+
+Ejemplo De data a enviar:
+```json 
+{
+    "id_usuario":322, 
+    "nombre_usuario":"CarAlmeida121",
+    "email":"jhon@gamil.com",
+    "fk_id_genero":1,
+    "camp_nombre":"Jhon calos Almeida",
+    "camp_direccion":"Floridablanca la casa blanca",
+    "camp_telefono":"3224757536"
+}
+```
+- Este endpoind me actualiza un usuario comprador 
+
 
 
 

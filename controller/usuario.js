@@ -258,31 +258,4 @@ router.put('/actualizar/comprador',proxyUsuario,(req,res)=>{
     
 });
 
-
-
-
 export default router;
-
-
-/* 
-
-    
-    conx.query(query, (err, respuesta,fil)=>{
-        if(err || (respuesta[0].affectedRows === 0 && respuesta[1].affectedRows === 0)){
-            if (respuesta[0].affectedRows === 0 && respuesta[1].affectedRows === 0) {
-                console.log({estatus:400, Message: "El usuario no existe en actualizar datos"});
-                res.send({estatus:400, Message: `El usuario al que desea actualizar no existe con id ${params.id_usuario}`});
-            }else if(respuesta[0].affectedRows === 1 && respuesta[1].affectedRows === 0){
-                console.log({estatus:400, Message: "El usuario no es un campesino"});
-                res.send({estatus:400, Message: `El usuario al que desea actualizar no es un campesino ${params.id_usuario}`});
-            }else{
-                console.log({estatus:400, Message: "Error al actualizar los datos"});
-                res.send({estatus:400, Message: "Error al actualizar los datos", "Error": err});
-            }
-        }else{
-            console.log("vacio");
-            console.log(respuesta);
-            res.send({status:200, Message:"Los datos se an actualizado correctamente"});
-        }
-    });
-*/
