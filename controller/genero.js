@@ -48,7 +48,7 @@ router.post('/',proxyGenero,(req, res)=>{
     })
 })
 
-router.delete('/:id_genero',(req, res)=>{
+router.delete('/:id_genero',proxyGenero,(req, res)=>{
     let params = req.params.id_genero;
     let query = `DELETE FROM genero WHERE id_genero = ${params}`;
     console.log(query);
@@ -72,7 +72,7 @@ Data que le envio
     "nombre_genero":"MedioMujer"
 }
  */
-router.put('/:id_genero',(req, res)=>{
+router.put('/:id_genero',proxyGenero,(req, res)=>{
     let query = `UPDATE genero SET ? WHERE id_genero = ?`;
     if(!req.body.id_genero && !req.body.nombre_genero){
         console.log({ "Message": "Error, parametro faltante"});

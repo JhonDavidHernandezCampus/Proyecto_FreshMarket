@@ -137,6 +137,52 @@ Ejemplo De data a enviar:
 ```
 - Este endpoind me actualiza un usuario comprador 
 
+### Endpoinds para la tabla genero
+
+###### Endpoind #1
+- Method = GET
+http://127.121.12.6:9103/genero/
+
+- Este endpoind me muestra todos los generos que hay 
+
+###### Endpoind #2
+- Method = POST
+http://127.121.12.6:9103/genero/
+
+Ejemplo De data a enviar:
+```json 
+{
+    "id_genero":2,
+    "nombre_genero":"MedioMujer"
+}
+```
+- Este endpoind me agrega un genero nuevo 
+
+
+###### Endpoind #3
+- Method = DELETE
+http://127.121.12.6:9103/genero/:id_genero
+
+Ejemplo: http://127.121.12.6:9103/genero/1
+
+
+- Este endpoind me alimina un genero ya existente
+
+
+###### Endpoind #4
+- Method = PUT
+http://127.121.12.6:9103/genero/:id_genero
+
+Ejemplo: http://127.121.12.6:9103/genero/1
+
+```json 
+{
+    "id_genero":2,
+    "nombre_genero":"MedioMujer"
+}
+```
+
+- Este endpoind me actualiza un genero ya existente
 
 
 
