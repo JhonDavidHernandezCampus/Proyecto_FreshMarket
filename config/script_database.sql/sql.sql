@@ -107,7 +107,7 @@ SELECT * FROM genero;
 SELECT * FROM usuario;
 SELECT * FROM campesino;
 SHOW COLUMNS FROM producto;
-SELECT * FROM producto;
+SELECT * FROM campesino_producto;
 SELECT * FROM comprador;
 SELECT * FROM tipo_producto;
 show COLUMNS from tipo_producto;

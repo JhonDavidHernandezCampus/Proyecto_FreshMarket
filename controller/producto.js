@@ -32,8 +32,8 @@ router.post('',proxyProducto,(req,res)=>{
     conx.query(query,parametros,(err,respuesta,fil)=>{
         if (err) {
             if (err.errno === 1062) {
-                console.log({ "Message": "Error, producto ya existe", "Error": err });
-                res.send({ "Message": "Error, producto ya existe" });
+                console.log({ "Message": "Error, producto con ese id ya existe", "Error": err });
+                res.send({ "Message": "Error, producto con ese id ya existe" });
             }else{
                 console.log({ "Message": "Error al insertar el productos", "Error": err });
                 res.send({ "Message": "Error al insertar el producto", "Error": err });
