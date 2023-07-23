@@ -3,15 +3,16 @@ import conx from './../config/db.js';
 import proxyUsuario from "../middleware/proxyUsuarios.js";
 const router = Express();
 
-
-
-
 router.get('/mostrar/:id', (req, res) => {
     let params = req.params.id;
-    conx.query(`SELECT * FROM comprador WHERE fk_id_usuario = ${params};
+    if(isNaN(Number(params))){
+        console.log({"Message":"El id debe ser numerico"});
+        res.send({"Message":"El id debe ser numerico"});
+    }else{
+        conx.query(`SELECT * FROM comprador WHERE fk_id_usuario = ${params};
                 SELECT * FROM campesino WHERE fk_id_usuario = ${params}`,
-        (err, respuesta, fil) => {
-            if (err || (respuesta[0].length === 0 && respuesta[1].length === 0)) {
+        (err, respuesta, fil) => { 
+            if (err || ( respuesta[0].length === 0 && respuesta[1].length === 0)) {
                 if (respuesta[0].length === 0 && respuesta[1].length === 0) {
                     console.log({ "Message": "El usuario no existe" });
                     res.send({ "Message": `El usuario con id ${params} no existe` });
@@ -55,6 +56,8 @@ router.get('/mostrar/:id', (req, res) => {
                 })
             }
         })
+    }
+    
 });
 /* 
 {
@@ -168,7 +171,7 @@ router.delete('/eliminar', proxyUsuario, (req, res) => {
     "camp_telefono":"3224757536"
 }
 */
-router.put('/actualizar/campesino', (req,res)=>{
+router.put('/actualizar/campesino',proxyUsuario, (req,res)=>{
     let params = req.body;
     let query = `UPDATE usuario SET nombre_usuario='${params.nombre_usuario}', email= '${params.email}', fk_id_genero= ${params.fk_id_genero} 
                 WHERE id_usuario= ${params.id_usuario};

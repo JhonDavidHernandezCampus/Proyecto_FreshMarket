@@ -24,20 +24,20 @@ export class Usuarios{
     @Transform(
         ({value})=>{
             if(Math.floor(value) && typeof value === 'number') return Math.floor(value);
-            else throw { status: 400, message: "El dato id_usuario no cumple con los parametros establesidos"};
+            else throw { status: 400, message: "El dato id_usuario no cumple con los parametros establecidos"};
         },{toClassOnly: true})
     id_usuario: number;
 
     @Expose({name : 'nombre_usuario'})
     @Transform(
-        ({value})=>{ if(/^[a-z A-Z0-9]+$/.test(value)) return value; else throw {status:400, message:"El parametro nombre_usuario no cumple con los parametros establesidos"};
+        ({value})=>{ if(/^[a-z A-Z0-9]+$/.test(value)) return value; else throw {status:400, message:"El parametro nombre_usuario no cumple con los parametros establecidos"};
     },{toClassOnly:true})
     nombre_usuario:string;
     
     @Expose({name:'email'})
     @IsEmail()
     @Transform(
-        ({ value })=>{if(/\S+@\S+\.\S+/.test(value)) return value; else throw {status:200 , message: "El parametro email no cumple con los requerimientos establesidos"};
+        ({ value })=>{if(/\S+@\S+\.\S+/.test(value)) return value; else throw {status:200 , message: "El parametro email no cumple con los requerimientos establecidos"};
     }, {toClassOnly:true})
     email:string;
 
@@ -71,7 +71,7 @@ export class Usuarios{
 
     @Expose({name:'nombre_comprador'})
     @Transform(
-        ({value})=>{ if(/^[a-z A-Z]+$/.test(value)) return value; else throw {status:400, message:"El parametro nombre no cumple con los parametros establesidos"};
+        ({value})=>{ if(/^[a-z A-Z]+$/.test(value)) return value; else throw {status:400, message:"El parametro nombre no cumple con los parametros establecidos"};
     },{toClassOnly:true})
     nombre_comprador?:string;
 

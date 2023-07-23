@@ -106,9 +106,12 @@ INSERT INTO campesino (id_campesino, camp_nombre, camp_direccion, camp_telefono,
 SELECT * FROM genero;
 SELECT * FROM usuario;
 SELECT * FROM campesino;
-SHOW COLUMNS FROM campesino;
+SHOW COLUMNS FROM producto;
+SELECT * FROM producto;
 SELECT * FROM comprador;
-
+SELECT * FROM tipo_producto;
+show COLUMNS from tipo_producto;
+SHOW TABLES;
 DELETE FROM usuario WHERE id_usuario = 312;
 
 SELECT * 

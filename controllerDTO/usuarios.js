@@ -44,7 +44,7 @@ __decorate([
         if (Math.floor(value) && typeof value === 'number')
             return Math.floor(value);
         else
-            throw { status: 400, message: "El dato id_usuario no cumple con los parametros establesidos" };
+            throw { status: 400, message: "El dato id_usuario no cumple con los parametros establecidos" };
     }, { toClassOnly: true }),
     __metadata("design:type", Number)
 ], Usuarios.prototype, "id_usuario", void 0);
@@ -54,7 +54,7 @@ __decorate([
         if (/^[a-z A-Z0-9]+$/.test(value))
             return value;
         else
-            throw { status: 400, message: "El parametro nombre_usuario no cumple con los parametros establesidos" };
+            throw { status: 400, message: "El parametro nombre_usuario no cumple con los parametros establecidos" };
     }, { toClassOnly: true }),
     __metadata("design:type", String)
 ], Usuarios.prototype, "nombre_usuario", void 0);
@@ -65,7 +65,7 @@ __decorate([
         if (/\S+@\S+\.\S+/.test(value))
             return value;
         else
-            throw { status: 200, message: "El parametro email no cumple con los requerimientos establesidos" };
+            throw { status: 200, message: "El parametro email no cumple con los requerimientos establecidos" };
     }, { toClassOnly: true }),
     __metadata("design:type", String)
 ], Usuarios.prototype, "email", void 0);
@@ -116,7 +116,7 @@ __decorate([
         if (/^[a-z A-Z]+$/.test(value))
             return value;
         else
-            throw { status: 400, message: "El parametro nombre no cumple con los parametros establesidos" };
+            throw { status: 400, message: "El parametro nombre no cumple con los parametros establecidos" };
     }, { toClassOnly: true }),
     __metadata("design:type", String)
 ], Usuarios.prototype, "nombre_comprador", void 0);

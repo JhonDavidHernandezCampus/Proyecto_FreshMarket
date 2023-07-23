@@ -43,6 +43,18 @@ Impulsar la sostenibilidad: Promover prácticas agrícolas sostenibles al conect
 ![Alt text](./img/diagrama.png)
 
 # Manual para usar el API 
+## !Advertencia para usar el api primero debes obtener un token de verificacion¡
+
+- Method = GET
+- Enpoint:  http://127.121.12.6:9103/token/:id/nombreUsusario
+- Ejemplo:
+```
+http://127.121.12.6:9103/token/14/jhonhernandez322
+```
+Una vez tengas tu token de verificacion debes colocarlo en un header llamado Authorization para que el api te pueda validar.
+
+- Este endpoint te rotornara un token valido por media hora que te permitira usar el api.
+
 
 ### Endpoinds para la tabla usuarios
 ###### Endpoind #1
@@ -178,11 +190,12 @@ Ejemplo: http://127.121.12.6:9103/genero/1
 ```json 
 {
     "id_genero":2,
-    "nombre_genero":"MedioMujer"
+    "nombre_genero":"Masculino"
 }
 ```
-
 - Este endpoind me actualiza un genero ya existente
+
+
 
 
 
