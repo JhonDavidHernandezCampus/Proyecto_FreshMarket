@@ -44,7 +44,6 @@ Impulsar la sostenibilidad: Promover prácticas agrícolas sostenibles al conect
 
 # Manual para usar el API 
 ## !Advertencia para usar el api primero debes obtener un token de verificacion¡
-
 - Method = GET
 - Enpoint:  http://127.121.12.6:9103/token/:id/nombreUsusario
 - Ejemplo:
@@ -60,14 +59,12 @@ Una vez tengas tu token de verificacion debes colocarlo en un header llamado Aut
 ###### Endpoind #1
 - Method = GET
 http://127.121.12.6:9103/usuario/mostrar/:id_usuario
-
 Ejemplo: http://127.121.12.6:9103/usuario/mostrar/2
 - Este endpoind me muestra los datos de un usuario segun su id pasado por la URL
 
 ###### Endpoind #2
 - Method = POST
 http://127.121.12.6:9103/usuario/insertar/campesino
-
 Ejemplo De data a enviar:
 ```json 
 {
@@ -86,7 +83,6 @@ Ejemplo De data a enviar:
 ###### Endpoind #3
 - Method = POST
 http://127.121.12.6:9103/usuario/insertar/comprador
-
 Ejemplo De data a enviar:
 ```json 
 {
@@ -104,7 +100,6 @@ Ejemplo De data a enviar:
 ###### Endpoind #4
 - Method = DELETE
 http://127.121.12.6:9103/usuario/eliminar
-
 Ejemplo De data a enviar:
 ```json 
 {
@@ -116,7 +111,6 @@ Ejemplo De data a enviar:
 ###### Endpoind #5
 - Method = PUT
 http://127.121.12.6:9103/usuario/actualizar/campesino
-
 Ejemplo De data a enviar:
 ```json 
 {
@@ -134,7 +128,6 @@ Ejemplo De data a enviar:
 ###### Endpoind #6
 - Method = PUT
 http://127.121.12.6:9103/usuario/actualizar/comprador
-
 Ejemplo De data a enviar:
 ```json 
 {
@@ -150,22 +143,19 @@ Ejemplo De data a enviar:
 - Este endpoind me actualiza un usuario comprador 
 
 ### Endpoinds para la tabla genero
-
 ###### Endpoind #1
 - Method = GET
 http://127.121.12.6:9103/genero/
-
 - Este endpoind me muestra todos los generos que hay 
 
 ###### Endpoind #2
 - Method = POST
 http://127.121.12.6:9103/genero/
-
 Ejemplo De data a enviar:
 ```json 
 {
     "id_genero":2,
-    "nombre_genero":"MedioMujer"
+    "nombre_genero":"Masculino"
 }
 ```
 - Este endpoind me agrega un genero nuevo 
@@ -174,19 +164,14 @@ Ejemplo De data a enviar:
 ###### Endpoind #3
 - Method = DELETE
 http://127.121.12.6:9103/genero/:id_genero
-
 Ejemplo: http://127.121.12.6:9103/genero/1
-
-
 - Este endpoind me alimina un genero ya existente
 
 
 ###### Endpoind #4
 - Method = PUT
 http://127.121.12.6:9103/genero/:id_genero
-
 Ejemplo: http://127.121.12.6:9103/genero/1
-
 ```json 
 {
     "id_genero":2,
@@ -196,6 +181,155 @@ Ejemplo: http://127.121.12.6:9103/genero/1
 - Este endpoind me actualiza un genero ya existente
 
 
+### Endpoinds para la tabla tipo_producto
 
+###### Endpoind #1
+- Method = GET
+http://127.121.12.6:9103/tipproducto/
+- Este endpoind me muestra todos los tipos de productos que hay
+
+###### Endpoind #2
+- Method = POST
+http://127.121.12.6:9103/tipproducto/
+Ejemplo De data a enviar:
+```json 
+{
+    "id_tipo_producto":2,
+    "nombre_tipo_producto":"arbeja",
+    "descripcion_tipo_producto":"Es verde y bonita"
+} 
+```
+- Este endpoind me agrega un tipo de producto nuevo 
+
+
+###### Endpoind #3
+- Method = DELETE
+http://127.121.12.6:9103/tipproducto
+- Se debe enviar esta data
+```json
+{
+    "id_eliminar":123
+}
+```
+- Este endpoind me alimina un tipo de producto ya existente
+
+
+
+### Endpoinds para la tabla producto
+###### Endpoind #1
+- Method = GET
+http://127.121.12.6:9103/producto/
+- Este endpoind me muestra todos los productos que hay
+
+###### Endpoind #2
+- Method = POST
+http://127.121.12.6:9103/producto/
+Ejemplo De data a enviar:
+```json 
+{
+    "id_producto":1,
+    "nombre_producto":"Apio",
+    "descripcion":"Amarillo y de sabor fuerte",
+    "fk_id_tipo":1
+}
+```
+- Este endpoind me agrega un producto nuevo 
+
+
+###### Endpoind #3
+- Method = DELETE
+http://127.121.12.6:9103/producto/:id_producto
+- Ejemplo: http://127.121.12.6:9103/producto/1
+- Este endpoind me alimina un tipo de producto ya existente
+
+
+### Endpoinds para la tabla campesino Producto
+###### Endpoind #1
+- Method = GET
+http://127.121.12.6:9103/campesinoproducto/
+- Este endpoind me muestra todos los productos que tienen los campesinos que hay en la base de datos
+
+###### Endpoind #2
+- Method = GET
+http://127.121.12.6:9103/campesinoproducto/campesino/:id_campesino
+- Este endpoind me muestra los productor que vende un determinado campesino
+
+
+###### Endpoind #3
+- Method = POST
+http://127.121.12.6:9103/campesinoproducto/
+Ejemplo De data a enviar:
+```json 
+{
+    "id_cam_pruducto":1,
+    "fk_id_campesino":2,
+    "fk_id_producto":1,
+    "precio_unitario":1
+}
+```
+- Este endpoind me agrega un producto para un campesino  
+
+
+###### Endpoind #4
+- Method = DELETE
+http://127.121.12.6:9103/campesinoproducto/:id_cam_pruducto
+Ejemplo: http://127.121.12.6:9103/campesinoproducto/1
+- Este endpoind me alimina un producto y datos del campesino que ya existente
+
+
+###### Endpoind #5
+- Method = PUT
+http://127.121.12.6:9103/campesinoproducto/:id_genero
+Ejemplo: http://127.121.12.6:9103/campesinoproducto/1
+```json 
+{
+    "id_cam_pruducto":1,
+    "fk_id_campesino":2,
+    "fk_id_producto":1,
+    "precio_unitario":1
+}
+```
+- Este endpoind me actualiza un producto de un campesino ya existente
+
+
+### Endpoinds para la tabla campesino Pedidos
+###### Endpoind #1
+- Method = GET
+http://127.121.12.6:9103/pedido/
+- Este endpoind me muestra todos los pedidos que hay en la base de datos
+
+###### Endpoind #2
+- Method = POST
+http://127.121.12.6:9103/pedido/
+Ejemplo De data a enviar:
+```json 
+{
+    "id_pedido":2,
+    "cantidad":221,
+    "fk_id_productos":1,
+    "fk_id_comprador":1
+}
+```
+- Este endpoind me agrega un pedido hecho por un comprador
+
+###### Endpoind #3
+- Method = DELETE
+http://127.121.12.6:9103/pedido/:id_    pedido
+Ejemplo: http://127.121.12.6:9103/pedido/1
+- Este endpoind me alimina un pedido que ya existente realizado por un comprador
+
+###### Endpoind #4
+- Method = PUT
+http://127.121.12.6:9103/pedido/:id_pedido
+Ejemplo: http://127.121.12.6:9103/pedido/1
+```json 
+{
+    "id_pedido":2,
+    "cantidad":"",
+    "fk_id_productos":"",
+    "fk_id_comprador":""
+}
+```
+- Este endpoind me actualiza un pedido que ya existe
 
 
