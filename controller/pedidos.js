@@ -1,21 +1,17 @@
 import  Express  from "express";
 import conx from './../config/db.js';
-import proxyGenero from "../middleware/proxyGenero.js";
 import jwt from './../controller/jwt.js';
+import proxyPedido from "../middleware/proxyPedidos.js";
 const router = Express();
 
-/* 
-{
-    "id_genero":12 //opcional
-    "nombre_genero":"MedioMujer"
-}
-*/
-router.get('/',jwt.validartoken,(req, res)=>{
-    let query = `SELECT * FROM genero`;
+
+
+router.get('',jwt.validartoken,(req, res)=>{
+    let query = `SELECT * FROM pedidos`;
     conx.query(query, (err,respuesta,fil)=>{
         if (err) {
-            console.log({ "Message": "Error al mostrar los generos", "Error": err });
-            res.send({ "Message": "Error al mostrar los generos", "Error": err });
+            console.log({ "Message": "Error al mostrar los pedidos", "Error": err });
+            res.send({ "Message": "Error al mostrar los pedidos", "Error": err });
         }else{
             res.send(respuesta);
         }
@@ -24,22 +20,24 @@ router.get('/',jwt.validartoken,(req, res)=>{
 
 /* 
 {
-    "id_genero":2,
-    "nombre_genero":"MedioMujer"
+    "id_pedido":2,
+    "cantidad":""
+    "fk_id_productos":"",
+    "fk_id_comprador":""
 }
 */
 
-router.post('/',proxyGenero,(req, res)=>{
+router.post('/',proxyPedido,(req, res)=>{
     let parametros = req.body;
-    let query = `INSERT INTO genero SET ?`
+    let query = `INSERT INTO pedidos SET ?`
     conx.query(query,parametros,(err,respuesta,fil)=>{
         if (err) {
             if (err.errno === 1062) {
-                console.log({ "Message": "Error, genero ya existe", "Error": err });
-                res.send({ "Message": "Error, Genero ya existe" });
+                console.log({ "Message": "Error, pedido ya existe", "Error": err });
+                res.send({ "Message": "Error, pedido ya existe" });
             }else{
-                console.log({ "Message": "Error al insertar los generos", "Error": err });
-                res.send({ "Message": "Error al insertar los generos", "Error": err });
+                console.log({ "Message": "Error al insertar el pedido", "Error": err });
+                res.send({ "Message": "Error al insertar el pedido", "Error": err });
 
             }
         }else{
@@ -48,18 +46,18 @@ router.post('/',proxyGenero,(req, res)=>{
     })
 })
 
-router.delete('/:id_genero',(req, res)=>{
-    let params = req.params.id_genero;
+router.delete('/:id_pedido',jwt.validartoken,(req, res)=>{
+    let params = req.params.id_pedido;
     if (isNaN(Number(params))) {
         console.log({ "Message": "Error,  Parametros no cumplen con lo espesificado"});
         res.send({ "Message": "Error, Parametros no cumplen con lo espesificado"});
     }else{
-        let query = `DELETE FROM genero WHERE id_genero = ${params}`;
+        let query = `DELETE FROM pedidos WHERE id_pedido = ${params}`;
         console.log(query);
         conx.query(query,(err,respuesta,fil)=>{
             if (err) {
-                console.log({ "Message": "Error al eliminar el  genero", "Error": err });
-                res.send({ "Message": "Error al eliminar el  genero", "Error": err });
+                console.log({ "Message": "Error al eliminar el  pedido", "Error": err });
+                res.send({ "Message": "Error al eliminar el  pedido", "Error": err });
             }else{
                 res.send({status:200, Message: "La data se ha eliminado correctamente"});
             }
@@ -71,32 +69,34 @@ router.delete('/:id_genero',(req, res)=>{
 /* 
 Data que le envio
 {
-    "id_genero":2,
-    "nombre_genero":"MedioMujer"
+    "id_pedido":2,
+    "cantidad":2,
+    "fk_id_productos":1,
+    "fk_id_comprador":1
 }
  */
-router.put('/:id_genero',proxyGenero,(req, res)=>{
-    let params = req.body.id_genero;
-    let query = `UPDATE genero SET ? WHERE id_genero = ?`;
+router.put('/:id_pedido',proxyPedido,(req, res)=>{
+    let params = req.params.id_pedido;
+    let query = `UPDATE pedidos SET ? WHERE id_pedido = ?`;
     if (isNaN(Number(params))) {
         console.log({ "Message": "Error,  Parametros no cumplen con lo espesificado"});
         res.send({ "Message": "Error, Parametros no cumplen con lo espesificado"});
     }else{
-        if(!req.body.id_genero && !req.body.nombre_genero){
+        if(!req.body.id_pedido && !req.body.cantidad && req.body.fk_id_productos && req.body.fk_id_comprador){
             console.log({ "Message": "Error, parametro faltante"});
             res.send({ "Message": "Error, parametro faltante"});
         }else{
             console.log(query);
-            conx.query(query, [req.body, req.params.id_genero], 
+            conx.query(query, [req.body, req.params.id_pedido], 
             (err, respuesta,fil)=>{
                 if (err) {
-                    console.log({ "Message": "Error al actualizar el  genero", "Error": err });
-                    res.send({ "Message": "Error al actualizar el  genero", "Error": err });
+                    console.log({ "Message": "Error al actualizar el  pedido", "Error": err });
+                    res.send({ "Message": "Error al actualizar el  pedido", "Error": err });
                 }else{
                     console.log(respuesta);
                     if(respuesta.affectedRows === 0){
                         console.log(respuesta);
-                        res.send({status:200, Message: `el genero con id ${req.params.id_genero} no existe`});
+                        res.send({status:200, Message: `el pedido con id ${req.params.id_pedido} no existe`});
                     }else{
                         console.log(respuesta);
                         res.send({status:200, Message: "La data se ha actualizado correctamente"});

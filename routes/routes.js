@@ -5,6 +5,7 @@ import ControllerJwt from '../controller/jwt.js';
 import ControllerTipo from './../controller/tipo_producto.js';
 import ControllerProducto from './../controller/producto.js';
 import ControllerCampesinoProducto  from './../controller/campeProducto.js';
+import ControllerPedidos from './../controller/pedidos.js';
 
 const Routes = express.Router();
 
@@ -14,6 +15,7 @@ Routes.use('/token', ControllerJwt.jwt);
 Routes.use('/tipproducto', ControllerTipo);
 Routes.use('/producto', ControllerProducto);
 Routes.use('/campesinoproducto', ControllerCampesinoProducto);
+Routes.use('/pedido', ControllerPedidos);
 
 
 export default Routes;
