@@ -8,6 +8,39 @@ const router = Express();
 
 
 */
+router.get('/campesino/:id_campesino',jwt.validartoken,(req, res)=>{
+    let params = req.params.id_campesino;
+    if (isNaN(Number(params))) {
+        console.log({ "Message": "Error,  Parametros no cumplen con lo espesificado"});
+        res.send({ "Message": "Error, Parametros no cumplen con lo espesificado"});
+    }else{
+        let query = `
+        SELECT c.camp_nombre Nombre_Campesino, c.camp_direccion Direccion,
+        c.camp_telefono Telefono,p.precio_unitario Precio_unidad,
+        u.nombre_usuario Nombre_como_usuario, u.email email
+        FROM campesino c INNER JOIN campesino_producto p
+        ON c.id_campesino = p.id_cam_pruducto
+        INNER JOIN usuario u ON u.id_usuario = c.id_campesino
+        WHERE fk_id_producto = ${params};`;
+    conx.query(query, (err,respuesta,fil)=>{
+        if (err) {
+            console.log({ "Message": "Error al mostrar los productos de campesino", "Error": err });
+            res.send({ "Message": "Error al mostrar los  productos de campesino", "Error": err });
+        }else{
+            if (respuesta.length === 0) {
+                console.log({ "Message": "El campesino no tiene de este producto" });
+                res.send({ "Message": "El campesino no tiene de este producto"});
+            }else{
+                res.send(respuesta);
+            }
+        }
+    })
+    }
+    
+})
+
+
+
 router.get('',jwt.validartoken,(req, res)=>{
     let query = `SELECT * FROM campesino_producto`;
     conx.query(query, (err,respuesta,fil)=>{
