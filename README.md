@@ -82,6 +82,9 @@ de la siguiente manera
 ```
 npm update
 ```
+- 3. Para finalizar debes ejecutar el escrip de la base de dqatos que se encuentra en la carpeta config/script_database/sql.sql
+una vez creada la base con los datos que estan hay, podras hacer las consultas de prueba.
+
 
 ## !Advertencia para usar el api primero debes obtener un token de verificacion¡
 - Method = GET
