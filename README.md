@@ -43,6 +43,46 @@ Impulsar la sostenibilidad: Promover prácticas agrícolas sostenibles al conect
 ![Alt text](./img/diagrama.png)
 
 # Manual para usar el API 
+
+## Instrucciones para instalar el proyecto
+- 1. Primero nos aseguramos que tengamos el archivo package.json
+de la siguiente manera
+
+```json
+{
+  "name": "proyecto_freshmarket",
+  "version": "1.0.0",
+  "description": "*** 🌱 FreshMarket 🍅 ***",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./app.js",
+    "tsc": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.18.2"
+  },
+  "devDependencies": {
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.0",
+    "dotenv": "16.3.1",
+    "jose": "4.14.4",
+    "mysql2": "3.5.1",
+    "nodemon": "3.0.1",
+    "reflect-metadata": "0.1.13",
+    "typescript": "5.1.6"
+  }
+}
+
+```
+- 2. Despues ejecutamos el siguiente comando para descargar todas las librerias y extenciones usadas en el proyecto
+```
+npm update
+```
+
 ## !Advertencia para usar el api primero debes obtener un token de verificacion¡
 - Method = GET
 - Enpoint:  http://127.121.12.6:9103/token/:id/nombreUsusario
