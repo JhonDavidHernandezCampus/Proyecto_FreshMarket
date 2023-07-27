@@ -57,7 +57,6 @@ CREATE TABLE campesino_producto(
     CONSTRAINT fk_produc_campes FOREIGN KEY (fk_id_campesino) REFERENCES campesino(id_campesino)
 );
 
-DROP TABLE campesino_producto;
 CREATE TABLE pedidos(
     id_pedido INT AUTO_INCREMENT PRIMARY KEY,
     fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
@@ -105,5 +104,3 @@ INSERT INTO campesino (id_campesino, camp_nombre, camp_direccion, camp_telefono,
 
 INSERT INTO campesino (id_campesino, camp_nombre, camp_direccion, camp_telefono, fk_id_usuario) VALUES
 (11, 'Daniel', 'Floridablanca', '1234567890', 1);
-
-INSERT INTO `campesino_producto` (`id_cam_pruducto`, `fk_id_campesino`, `fk_id_producto`, `precio_unitario`) VALUES (NULL, '11', '2', '1000');
